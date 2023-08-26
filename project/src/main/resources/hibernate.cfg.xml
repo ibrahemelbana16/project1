@@ -26,8 +26,8 @@
         <property name="show_sql">true</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="classes.Intern"/>
-        <mapping class="classes.Project"/>
+        <mapping class="classes.student"/>
+        <mapping class="classes.student_att"/>
 
     </session-factory>
 
