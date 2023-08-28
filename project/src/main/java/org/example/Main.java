@@ -1,5 +1,6 @@
 package org.example;
 
+import classes.db;
 import classes.services;
 import classes.student;
 
@@ -8,7 +9,10 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc;
     static services intse;
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception {
+        db db=new db();
+        intse=new services(db);
         sc = new Scanner(System.in);
         Viewaction();
         while (true) {
