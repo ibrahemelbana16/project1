@@ -1,7 +1,11 @@
 package org.example;
 
+
+import classes.StudentRepository;
 import classes.StudentService;
 import classes.Student;
+
+
 
 import java.util.Scanner;
 
@@ -9,8 +13,10 @@ public class Main {
     static Scanner scanner;
     static StudentService studentService;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
+        StudentRepository studentRepository=new StudentRepository();
+        studentService =new StudentService(studentRepository);
         Viewaction();
         while (true) {
             String title = scanner.nextLine();
@@ -20,6 +26,8 @@ public class Main {
                     studentService.createstudent(scanStudent());
                     break;
                 case "list":
+                    studentService.list();
+
                     break;
                 case "delete":
                     scanStudent();

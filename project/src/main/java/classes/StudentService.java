@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.List;
+
 public class StudentService {
     private classes.StudentRepository studentRepository;
 
@@ -12,8 +14,11 @@ public class StudentService {
 
     }
 
-    public void list(Student student) {
-        studentRepository.list(student);
+    public void list() {
+      List<Student>list=  studentRepository.getAllStudents();
+      for (Student student:list){
+          System.out.println(student);
+      }
 
     }
 
