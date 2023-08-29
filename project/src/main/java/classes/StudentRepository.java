@@ -1,8 +1,8 @@
 package classes;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
-import javax.persistence.Query;
 import java.util.List;
 
 public class StudentRepository extends db {
@@ -30,5 +30,23 @@ public class StudentRepository extends db {
         }
 
     }
+    public Student getStudentsById(int id) {
+        Session session = startSession();
+        try {
+            Query query = session.createQuery("FROM Student where id = :id ", Student.class);
+            query.setParameter("id",id);
+            return (Student) query.uniqueResult();
+        } finally {
+            session.close();
+        }
+
+    }
+    public void update(Student student) {
+
+        Session session = startSession();
+        session.update(student);
+        commitSession(session);
+    }
+
     }
 

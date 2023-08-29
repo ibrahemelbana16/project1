@@ -29,8 +29,9 @@ public class Main {
                     studentService.list();
 
                     break;
-                case "delete":
-                    scanStudent();
+                case "update":
+                int id=ScanId();
+                    studentService.updatemain(id);
                     break;
             }
 
@@ -62,5 +63,12 @@ public class Main {
         return new Student(name, age, unversity);
 
     }
+public static int ScanId(){
+    System.out.println("Please enter classes.classes.student ID TO UBDATE");
+    int id = Integer.parseInt(scanner.nextLine());
+    return id;
+
+}
+
 
 }
