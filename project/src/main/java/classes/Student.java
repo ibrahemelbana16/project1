@@ -70,4 +70,10 @@ public class Student {
     public void setUniversity(String university) {
         this.university = university;
     }
+    public void changeStudent(String name, int age, String university) {
+
+        this.name = name;
+        this.age = age;
+        this.university = university;
+    }
 }
