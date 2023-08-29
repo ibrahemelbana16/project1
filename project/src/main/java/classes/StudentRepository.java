@@ -47,6 +47,12 @@ public class StudentRepository extends db {
         session.update(student);
         commitSession(session);
     }
+    public void delet(Student student) {
+
+        Session session = startSession();
+        session.delete(student);
+        commitSession(session);
+    }
 
     }
 

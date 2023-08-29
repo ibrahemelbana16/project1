@@ -33,6 +33,11 @@ public class Main {
                 int id=ScanId();
                     studentService.updatemain(id);
                     break;
+                case "delet":
+                    int id1=ScanId();
+                 Student studentdlete= studentService.getbyid(id1);
+                    studentService.delet(studentdlete);
+                    break;
             }
 
 
