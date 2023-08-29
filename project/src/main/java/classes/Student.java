@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class student {
+public class Student {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
@@ -14,6 +14,10 @@ public class student {
     private int id;
     private String name;
     private int age;
+
+    public Student() {
+    }
+
     private String university;
 
     public int getId() {
@@ -38,7 +42,17 @@ public class student {
         return age;
     }
 
-    public student( String name, int age, String university) {
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", university='" + university + '\'' +
+                '}';
+    }
+
+    public Student(String name, int age, String university) {
 
         this.name = name;
         this.age = age;

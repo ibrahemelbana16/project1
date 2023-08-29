@@ -1,32 +1,37 @@
 package org.example;
 
-import classes.services;
-import classes.student;
+
+import classes.StudentRepository;
+import classes.StudentService;
+import classes.Student;
+
+
 
 import java.util.Scanner;
 
 public class Main {
-    static Scanner sc;
-    static services intse;
-    public static void main(String[] args) {
-        sc = new Scanner(System.in);
+    static Scanner scanner;
+    static StudentService studentService;
+
+    public static void main(String[] args) throws Exception {
+        scanner = new Scanner(System.in);
+        StudentRepository studentRepository=new StudentRepository();
+        studentService =new StudentService(studentRepository);
         Viewaction();
         while (true) {
-            String title = sc.nextLine();
-            student student;
+            String title = scanner.nextLine();
+
             switch (title) {
                 case "add":
-                    student= scan();
-                    intse.createstudent(student);
+                    studentService.createstudent(scanStudent());
                     break;
                 case "list":
+                    studentService.list();
 
                     break;
-
                 case "delete":
-                    scan();
+                    scanStudent();
                     break;
-
             }
 
 
@@ -34,7 +39,8 @@ public class Main {
 
 
     }
-    public static   void Viewaction(){
+
+    public static void Viewaction() {
 
         System.out.println("Please Select one of the following :");
         System.out.println("To add a new intern to the database, write 'add'");
@@ -44,16 +50,16 @@ public class Main {
 
     }
 
-    public static student scan(){
+    public static Student scanStudent() {
 
 
         System.out.println("Please enter classes.classes.student age");
-        int age =  Integer.parseInt(sc.nextLine());
+        int age = Integer.parseInt(scanner.nextLine());
         System.out.println("Please enter classes.classes.student name");
-        String name = sc.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Please enter classes.classes.student unversity");
-        String unversity = sc.nextLine();
-        return new student(name,age,unversity);
+        String unversity = scanner.nextLine();
+        return new Student(name, age, unversity);
 
     }
 

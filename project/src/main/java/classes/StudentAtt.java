@@ -1,11 +1,10 @@
 package classes;
 
-import classes.student;
-
 import javax.persistence.*;
 import java.sql.Date;
+
 @Entity
-public class student_att {
+public class StudentAtt {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
@@ -18,12 +17,12 @@ public class student_att {
                     name = "student_fk"
 
             )
-    private classes.student student;
+    private Student student;
 
-    public student_att() {
+    public StudentAtt() {
     }
 
-    public student_att(int id, Date date, boolean isattendent) {
+    public StudentAtt(int id, Date date, boolean isattendent) {
         this.id = id;
         this.date = date;
         this.isattendent = isattendent;
