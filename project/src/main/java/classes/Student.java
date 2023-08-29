@@ -14,6 +14,10 @@ public class Student {
     private int id;
     private String name;
     private int age;
+
+    public Student() {
+    }
+
     private String university;
 
     public int getId() {
@@ -36,6 +40,16 @@ public class Student {
 
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", university='" + university + '\'' +
+                '}';
     }
 
     public Student(String name, int age, String university) {
